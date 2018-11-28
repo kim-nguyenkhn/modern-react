@@ -6,9 +6,10 @@ function Counter() {
   // But we only really need to read that value for the first render
   // 🐨 1. instead of passing the value to useState as we are now,
   // pass a function which returns the value.
-  const [count, setCount] = useState(
-    Number(window.localStorage.getItem('count') || 0),
-  )
+  const getInitialCount = () =>
+    Number(window.localStorage.getItem('count') || 0)
+
+  const [count, setCount] = useState(getInitialCount)
   const incrementCount = () => setCount(count + 1)
   useEffect(
     () => {
@@ -18,6 +19,8 @@ function Counter() {
     // it should be an array of the callback's "dependencies"
     // Said differently: "What variables does the useEffect callback use?"
     // pass those variables as a second argument as an array.
+    [count],
+
     // React _only_ calls the effect callback:
     // 1. After the first render
     // 2. After a render during which any element in the dependencies array changes.
