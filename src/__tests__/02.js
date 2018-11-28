@@ -34,7 +34,7 @@ test('useCounter works', () => {
 // 3. Change submitted from `false` to `true`
 // 4. And you're all done!
 /*
-http://ws.kcd.im/?ws=react%20patterns&e=01&em=
+http://ws.kcd.im/?ws=react%20patterns&e=02&em=
 */
 test('I submitted my elaboration and feedback', () => {
   const submitted = true // change this when you've submitted!
